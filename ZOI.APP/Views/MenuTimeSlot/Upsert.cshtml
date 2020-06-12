@@ -1,0 +1,59 @@
+﻿@model ZOI.BAL.Models.MenuTimeSlot
+
+
+<h1 class="text-info"> @(Model.Id != 0 ? "Edit" : "Create") Menu Time Slot </h1>
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        @if (Model.Id != 0)
+        {
+            <Input hidden asp-for="Id" class="form-control" />
+        }
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="TimeslotName"> Time Slot Name</label>
+            </div>
+            <div class="col-6">
+                <Input asp-for="TimeslotName" class="form-control" />
+            </div>
+            <span asp-validation-for="TimeslotName" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="StartTime"> Start Time</label>
+            </div>
+            <div class="col-6">
+                <Input asp-for="StartTime" class="form-control" />
+            </div>
+            <span asp-validation-for="StartTime" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="EndTime">End Time</label>
+            </div>
+            <div class="col-6">
+                <Input asp-for="EndTime" class="form-control" />
+            </div>
+            <span asp-validation-for="EndTime" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4"></div>
+            <div class="col-3">
+                <button type="submit" asp-action="Upsert" class="btn-primary form-control">
+                    @(Model.Id != 0 ? "Update" : "Create")
+                </button>
+            </div>
+            <div class="col-3">
+                <a asp-action="ListFoodSlots" class="btn-primary form-control">Back to List </a>
+            </div>
+
+
+        </div>
+    </form>
+
+</div>
+@section Scripts{
+
+    <script src="~/js/FoodSlotList.js"></script>
+}

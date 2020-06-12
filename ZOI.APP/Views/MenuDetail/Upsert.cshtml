@@ -1,0 +1,87 @@
+﻿@model ZOI.BAL.Models.MenuDetail
+
+<h1 class="text-info"> @(Model.Id != 0 ? "Edit" : "Create") Menu  </h1>
+<div class="border container" style="padding:30px;">
+    <form method="post">
+        @if (Model.Id != 0)
+        {
+            <Input hidden asp-for="Id" class="form-control" />
+        }
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Id">Menu Type </label>
+            </div>
+            <div class="col-6">
+                <Input  asp-for="Id" class="form-control" />
+            </div>
+            <span asp-validation-for="Id" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Id"></label>
+            </div>
+            <div class="col-6">
+                <Input asp-for="Id" class="form-control" />
+            </div>
+            <span asp-validation-for="Id" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="MenuItem"></label>
+            </div>
+            <div class="col-6">
+                <Input asp-for="MenuItem" class="form-control" />
+            </div>
+            <span asp-validation-for="MenuItem" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="MenuDate"></label>
+            </div>
+            <div class="col-6">
+                <Input type="date" asp-for="MenuDate" class="form-control" />
+            </div>
+            <span asp-validation-for="MenuDate" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="MenuItemDescription"></label>
+            </div>
+            <div class="col-6">
+                <Input type="text" asp-for="MenuItemDescription" class="form-control" />
+            </div>
+            <span asp-validation-for="MenuItemDescription" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="MRP"></label>
+            </div>
+            <div class="col-6">
+                <Input asp-for="MRP" class="form-control" />
+            </div>
+            <span asp-validation-for="MRP" class="text-danger"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4"></div>
+            <div class="col-3">
+                <button type="submit" class="btn-primary form-control">
+                    @(Model.Id != 0 ? "Update" : "Create")
+                </button>
+            </div>
+            <div class="col-3">
+                <a asp-action="ListMenu" class="btn-primary form-control">Back to List </a>
+            </div>
+
+
+        </div>
+
+    </form>
+</div>
+
+@section scripts{
+
+    <Partial name="_ValidationScriptsPartial.cshtml" />
+
+}
